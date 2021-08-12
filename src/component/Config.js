@@ -1,0 +1,9 @@
+export const WHITE = "white";
+export const RED = "rgb(218 ,97 ,92)";
+export const PRIMARY = "rgba(143,186,56,1)";
+export const BORDER_LIGHT = "rgb(223 ,223 ,225)";
+export const BORDER_DARK = "rgb(142 ,142 ,147)";
+export const FONT_DARK = "rgb(72 ,72 ,74)";
+export const SKYBLUE = "#0080FF";
+export const BACKGROUND_LAYER = "rgb(243 ,243 ,245)";
+export const HeightHeader = 120;

@@ -1,21 +1,54 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import Route from "./router/router";
+import * as Font from "expo-font";
+import { setCustomText } from "react-native-global-props";
+import { LogBox } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppStackScreen } from "./router/navigation";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            fontsLoaded: false,
+        };
+    }
+
+    async componentDidMount() {
+        //this.loadFonts();
+        LogBox.ignoreAllLogs(["Non-serializable values were found in the navigation state"]);
+    }
+
+    //async loadFonts() {
+        // await Font.loadAsync({
+        //     // Load a font `Montserrat` from a static resource
+        //     kanitLight: require("./assets/fonts/Kanit-Light.ttf"),
+
+        //     // Any string can be used as the fontFamily name. Here we use an object to provide more control
+        //     kanitBold: {
+        //         uri: require("./assets/fonts/Kanit-SemiBold.ttf"),
+        //     },
+        // });
+        // this.defaultFonts();
+    //}
+
+    // async defaultFonts() {
+    //     const customTextProps = {
+    //         style: {
+    //             fontFamily: "kanitLight",
+    //         },
+    //     };
+    //     setCustomText(customTextProps);
+    // }
+
+    render() {
+        return (
+            <NavigationContainer>
+                <AppStackScreen />
+            </NavigationContainer>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
